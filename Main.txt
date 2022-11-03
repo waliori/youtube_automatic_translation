@@ -1,0 +1,50 @@
+Variables.CreateNewList List=> List
+Display.InputDialog Title: $'''Video Number''' Message: $'''How many video you want to translate''' DefaultValue: 0 InputType: Display.InputType.SingleLine IsTopMost: False UserInput=> videos ButtonPressed=> ButtonPressed2
+Text.ToNumber Text: videos Number=> videos
+LOOP LoopIndex FROM 1 TO videos STEP 1
+    Display.InputDialog Title: $'''Videos Id''' Message: $'''video id here''' InputType: Display.InputType.SingleLine IsTopMost: False UserInput=> inputId ButtonPressed=> ButtonPressed
+    Variables.AddItemToList Item: inputId List: List
+END
+LOOP FOREACH CurrentItem IN List
+    SET videoId TO CurrentItem
+    # Arabic
+    WebAutomation.LaunchChrome.LaunchChrome Url: $'''https://studio.youtube.com/video/%videoId%/translations''' WindowState: WebAutomation.BrowserWindowState.Normal ClearCache: False ClearCookies: False WaitForPageToLoadTimeout: 60 Timeout: 60 BrowserInstance=> Browser
+    CALL Arabic
+    WebAutomation.CloseWebBrowser BrowserInstance: Browser
+    # Chinese
+    WebAutomation.LaunchChrome.LaunchChrome Url: $'''https://studio.youtube.com/video/%videoId%/translations''' WindowState: WebAutomation.BrowserWindowState.Normal ClearCache: False ClearCookies: False WaitForPageToLoadTimeout: 60 Timeout: 60 BrowserInstance=> Browser
+    CALL Chinese
+    WebAutomation.CloseWebBrowser BrowserInstance: Browser
+    # French
+    WebAutomation.LaunchChrome.LaunchChrome Url: $'''https://studio.youtube.com/video/%videoId%/translations''' WindowState: WebAutomation.BrowserWindowState.Normal ClearCache: False ClearCookies: False WaitForPageToLoadTimeout: 60 Timeout: 60 BrowserInstance=> Browser
+    CALL French
+    WebAutomation.CloseWebBrowser BrowserInstance: Browser
+    # German
+    WebAutomation.LaunchChrome.LaunchChrome Url: $'''https://studio.youtube.com/video/%videoId%/translations''' WindowState: WebAutomation.BrowserWindowState.Normal ClearCache: False ClearCookies: False WaitForPageToLoadTimeout: 60 Timeout: 60 BrowserInstance=> Browser
+    CALL German
+    WebAutomation.CloseWebBrowser BrowserInstance: Browser
+    # Hindi
+    WebAutomation.LaunchChrome.LaunchChrome Url: $'''https://studio.youtube.com/video/%videoId%/translations''' WindowState: WebAutomation.BrowserWindowState.Normal ClearCache: False ClearCookies: False WaitForPageToLoadTimeout: 60 Timeout: 60 BrowserInstance=> Browser
+    CALL Hindi
+    WebAutomation.CloseWebBrowser BrowserInstance: Browser
+    # Japanese
+    WebAutomation.LaunchChrome.LaunchChrome Url: $'''https://studio.youtube.com/video/%videoId%/translations''' WindowState: WebAutomation.BrowserWindowState.Normal ClearCache: False ClearCookies: False WaitForPageToLoadTimeout: 60 Timeout: 60 BrowserInstance=> Browser
+    CALL Japanese
+    WebAutomation.CloseWebBrowser BrowserInstance: Browser
+    # Korean
+    WebAutomation.LaunchChrome.LaunchChrome Url: $'''https://studio.youtube.com/video/%videoId%/translations''' WindowState: WebAutomation.BrowserWindowState.Normal ClearCache: False ClearCookies: False WaitForPageToLoadTimeout: 60 Timeout: 60 BrowserInstance=> Browser
+    CALL Korean
+    WebAutomation.CloseWebBrowser BrowserInstance: Browser
+    # Portuguese
+    WebAutomation.LaunchChrome.LaunchChrome Url: $'''https://studio.youtube.com/video/%videoId%/translations''' WindowState: WebAutomation.BrowserWindowState.Normal ClearCache: False ClearCookies: False WaitForPageToLoadTimeout: 60 Timeout: 60 BrowserInstance=> Browser
+    CALL Portuguese
+    WebAutomation.CloseWebBrowser BrowserInstance: Browser
+    # Russian
+    WebAutomation.LaunchChrome.LaunchChrome Url: $'''https://studio.youtube.com/video/%videoId%/translations''' WindowState: WebAutomation.BrowserWindowState.Normal ClearCache: False ClearCookies: False WaitForPageToLoadTimeout: 60 Timeout: 60 BrowserInstance=> Browser
+    CALL Russian
+    WebAutomation.CloseWebBrowser BrowserInstance: Browser
+    # Spanish
+    WebAutomation.LaunchChrome.LaunchChrome Url: $'''https://studio.youtube.com/video/%videoId%/translations''' WindowState: WebAutomation.BrowserWindowState.Normal ClearCache: False ClearCookies: False WaitForPageToLoadTimeout: 60 Timeout: 60 BrowserInstance=> Browser
+    CALL Spanish
+    WebAutomation.CloseWebBrowser BrowserInstance: Browser
+END
