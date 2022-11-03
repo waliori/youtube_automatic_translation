@@ -1,6 +1,8 @@
 # Automatic Youtube Video Title and Description Translator
 
-## prerequisites
+![powershell screenshot](./images/screenshot.png)
+
+## Prerequisites
 
 - Windows with Microsoft account
 - Power Automate and browser extension
