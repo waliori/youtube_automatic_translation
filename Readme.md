@@ -12,7 +12,9 @@
 
 ## How to use
 
-Check youtube video : 
+Check youtube videos :
+- Installation and usage: https://youtu.be/5OJXXrAIp-4
+- Explanation:  
 
 ## Flow
 
