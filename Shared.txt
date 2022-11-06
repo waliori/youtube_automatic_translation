@@ -9,7 +9,9 @@ Clipboard.SetText Text: TrTitle
 MouseAndKeyboard.SendKeys.FocusAndSendKeys TextToSend: $'''{Control}({F4})''' DelayBetweenKeystrokes: 10 SendTextAsHardwareKeys: False
 WebAutomation.PopulateTextField.PopulateTextFieldUsePhysicalKeyboard BrowserInstance: Browser Control: appmask['Web Page \'h ... anslations\'']['Text area \'style-scope ytcp-form-textarea\' 3'] Text: TrTitle Mode: WebAutomation.PopulateTextMode.Replace UnfocusAfterPopulate: False WaitForPageToLoadTimeout: 60
 WebAutomation.ExecuteJavascript BrowserInstance: Browser Javascript: $'''function ExecuteScript() { return document.querySelector(\"#original-description > div > textarea\").value }''' Result=> Descr
-WebAutomation.CreateNewTab.CreateNewTab BrowserInstance: Browser Url: $'''https://translate.google.ca/?sl=en&tl=%code%&op=translate&text=%Descr%''' WaitForPageToLoadTimeout: 60 NewBrowserInstance=> NewBrowser
+Text.Replace Text: Descr TextToFind: $'''#''' IsRegEx: True IgnoreCase: False ReplaceWith: $'''%%23''' ActivateEscapeSequences: True Result=> Replaced
+Text.Replace Text: Replaced TextToFind: $'''\\n''' IsRegEx: True IgnoreCase: False ReplaceWith: $'''%%0A''' ActivateEscapeSequences: False Result=> Replaced2
+WebAutomation.CreateNewTab.CreateNewTab BrowserInstance: Browser Url: $'''https://translate.google.ca/?sl=en&tl=%code%&op=translate&text=%Replaced2%''' WaitForPageToLoadTimeout: 60 NewBrowserInstance=> NewBrowser
 WAIT 2
 WebAutomation.ExecuteJavascript BrowserInstance: NewBrowser Javascript: $'''function ExecuteScript() { return document.querySelector(\'span[lang=\"%code%\"]\').innerText }''' Result=> TrDesc
 Clipboard.SetText Text: TrDesc

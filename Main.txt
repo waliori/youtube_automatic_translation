@@ -2,7 +2,7 @@ Variables.CreateNewList List=> List
 Display.InputDialog Title: $'''Video Number''' Message: $'''How many video you want to translate''' DefaultValue: 0 InputType: Display.InputType.SingleLine IsTopMost: False UserInput=> videos ButtonPressed=> ButtonPressed2
 Text.ToNumber Text: videos Number=> videos
 LOOP LoopIndex FROM 1 TO videos STEP 1
-    Display.InputDialog Title: $'''Videos Id''' Message: $'''video id here''' InputType: Display.InputType.SingleLine IsTopMost: False UserInput=> inputId ButtonPressed=> ButtonPressed
+    Display.InputDialog Title: $'''Videos Id %LoopIndex%/%videos%''' Message: $'''%LoopIndex%/%videos% - video id here''' InputType: Display.InputType.SingleLine IsTopMost: False UserInput=> inputId ButtonPressed=> ButtonPressed
     Variables.AddItemToList Item: inputId List: List
 END
 LOOP FOREACH CurrentItem IN List
