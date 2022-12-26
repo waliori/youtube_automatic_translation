@@ -1,11 +1,8 @@
-
-FUNCTION Arabic GLOBAL
-    SET code TO $'''ar'''
-    WebAutomation.PressButton.PressButton BrowserInstance: Browser Control: appmask['Web Page \'h ... anslations\'']['Ytcp-button \'add-translations-button\''] WaitForPageToLoadTimeout: 60
-    WAIT 1
-    WebAutomation.Click.Click BrowserInstance: Browser Control: appmask['Web Page \'h ... anslations\' 2']['Div \'right-container style-scope ytcp-text-menu\''] ClickType: WebAutomation.ClickType.LeftClick MouseClick: True WaitForPageToLoadTimeout: 60 MousePositionRelativeToElement: WebAutomation.RectangleEdgePoint.MiddleCenter OffsetX: 0 OffsetY: 0
-    CALL Shared
-END FUNCTION
+SET code TO $'''ar'''
+WebAutomation.PressButton.PressButton BrowserInstance: Browser Control: appmask['Web Page \'h ... anslations\'']['Ytcp-button \'add-translations-button\''] WaitForPageToLoadTimeout: 60
+WAIT 1
+WebAutomation.Click.Click BrowserInstance: Browser Control: appmask['Web Page \'h ... anslations\' 2']['Div \'right-container style-scope ytcp-text-menu\''] ClickType: WebAutomation.ClickType.LeftClick MouseClick: True WaitForPageToLoadTimeout: 60 MousePositionRelativeToElement: WebAutomation.RectangleEdgePoint.MiddleCenter OffsetX: 0 OffsetY: 0
+CALL Shared
 
 # [ControlRepository][PowerAutomateDesktop]
 
