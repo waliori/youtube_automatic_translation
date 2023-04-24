@@ -13,6 +13,7 @@ WebAutomation.ExecuteJavascript BrowserInstance: Browser Javascript: $'''functio
 return document.querySelector(\"#original-description > div > textarea\").value.replace(emojiRE, \' $1 \');
 }''' Result=> Descr
 Text.Replace Text: Descr TextToFind: $'''#''' IsRegEx: True IgnoreCase: False ReplaceWith: $'''%%23''' ActivateEscapeSequences: True Result=> Replaced
+Text.Replace Text: Replaced TextToFind: $'''&''' IsRegEx: True IgnoreCase: False ReplaceWith: $'''%%26''' ActivateEscapeSequences: False Result=> Replaced
 Text.Replace Text: Replaced TextToFind: $'''\\n''' IsRegEx: True IgnoreCase: False ReplaceWith: $'''%%0A''' ActivateEscapeSequences: False Result=> Replaced2
 WebAutomation.CreateNewTab.CreateNewTab BrowserInstance: Browser Url: $'''https://translate.google.ca/?sl=en&tl=%code%&op=translate&text=%Replaced2%''' WaitForPageToLoadTimeout: 60 NewBrowserInstance=> NewBrowser
 WAIT 2
