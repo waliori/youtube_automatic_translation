@@ -22,6 +22,7 @@ Check youtube videos :
     - start with entering the number of videos you want to translate
     - then enter their ids 
       - youtu.be/**Yw0kYV3bD4c**
+    - Choose if you want to overwrite already present translations or not (default No: bypass present translations) 
     - Get back , relax and watch flow work in your place
     - The flow will then enter a loop whre for each video id will:
       - for each language will:
