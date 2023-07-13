@@ -13,8 +13,8 @@
 ## How to use
 
 Check youtube videos :
-- Installation and usage: [https://youtu.be/5OJXXrAIp-4](https://youtu.be/SQM-lb4lTEo)
-- Explanation:  [https://youtu.be/zl_l0yx58Ck](https://youtu.be/zl_l0yx58Ck)
+- Installation and usage: https://youtu.be/SQM-lb4lTEo
+- Explanation:  https://youtu.be/zl_l0yx58Ck
 
 ## Flow
 
