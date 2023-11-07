@@ -8,7 +8,7 @@
 
 ## changelog June-27-2023
 - Added ability to overwrite (or not) already translated languages.
-- 
+  
 ## Prerequisites
 
 - Windows with Microsoft account
