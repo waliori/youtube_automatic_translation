@@ -2,6 +2,10 @@
 
 ![powershell screenshot](./images/screenshot.png)
 
+## changelog Nov-7-2023
+adapted the flow to the new YouTube layout
+Fixed a type (Ukranian-> Ukrainian)
+
 ## Prerequisites
 
 - Windows with Microsoft account

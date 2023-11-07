@@ -1,4 +1,5 @@
 SET code TO $'''ko'''
+SET language TO $'''Korean'''
 IF (WebAutomation.IfWebPageContains.WebPageDoesNotContainElement BrowserInstance: Browser Control: appmask['Web Page \'h ... anslations\' 4']['Div \'Korean\'']) THEN
     WebAutomation.PressButton.PressButton BrowserInstance: Browser Control: appmask['Web Page \'h ... anslations\'']['Ytcp-button \'add-translations-button\''] WaitForPageToLoadTimeout: 60
     WAIT 1

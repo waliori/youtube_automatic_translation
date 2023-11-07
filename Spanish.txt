@@ -1,4 +1,5 @@
 SET code TO $'''es'''
+SET language TO $'''Spanish'''
 IF (WebAutomation.IfWebPageContains.WebPageDoesNotContainElement BrowserInstance: Browser Control: appmask['Web Page \'h ... anslations\' 4']['Div \'Spanish\'']) THEN
     WebAutomation.PressButton.PressButton BrowserInstance: Browser Control: appmask['Web Page \'h ... anslations\'']['Ytcp-button \'add-translations-button\''] WaitForPageToLoadTimeout: 60
     WAIT 1
