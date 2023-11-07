@@ -1,7 +1,5 @@
-
-FUNCTION Shared GLOBAL
-    WAIT 1
-    WebAutomation.ExecuteJavascript BrowserInstance: Browser Javascript: $'''function ExecuteScript() { 
+WAIT 1
+WebAutomation.ExecuteJavascript BrowserInstance: Browser Javascript: $'''function ExecuteScript() { 
 var event = new MouseEvent(\'mouseover\', {
   \'view\': window,
   \'bubbles\': true,
@@ -17,29 +15,28 @@ langs.forEach(lang=> {
 element.dispatchEvent(event);
 setTimeout(() => row.children[0].children[2].querySelector(\".ytgn-video-translation-hover-cell\").querySelector(\"#metadata-add\").click(), 1000)
 }''' Result=> Result
-    WAIT 1
-    WebAutomation.ExecuteJavascript BrowserInstance: Browser Javascript: $'''function ExecuteScript() { return document.querySelector(\"#original-title > div > textarea\").value }''' Result=> Title
-    WebAutomation.CreateNewTab.CreateNewTab BrowserInstance: Browser Url: $'''https://translate.google.ca/?sl=en&tl=%code%&op=translate&text=%Title%''' WaitForPageToLoadTimeout: 60 NewBrowserInstance=> NewBrowser
-    WAIT 2
-    WebAutomation.ExecuteJavascript BrowserInstance: NewBrowser Javascript: $'''function ExecuteScript() { return document.querySelector(\'span[lang=\"%code%\"]\').innerText }''' Result=> TrTitle
-    Clipboard.SetText Text: TrTitle
-    MouseAndKeyboard.SendKeys.FocusAndSendKeys TextToSend: $'''{Control}({F4})''' DelayBetweenKeystrokes: 10 SendTextAsHardwareKeys: False
-    WebAutomation.PopulateTextField.PopulateTextFieldUsePhysicalKeyboard BrowserInstance: Browser Control: appmask['Web Page \'h ... anslations\'']['Text area \'style-scope ytcp-form-textarea\' 3'] Text: TrTitle Mode: WebAutomation.PopulateTextMode.Replace UnfocusAfterPopulate: False WaitForPageToLoadTimeout: 60
-    Text.Replace Text: Descr TextToFind: $'''#''' IsRegEx: True IgnoreCase: False ReplaceWith: $'''%%23''' ActivateEscapeSequences: True Result=> Replaced
-    WebAutomation.ExecuteJavascript BrowserInstance: Browser Javascript: $'''function ExecuteScript() { var emojiRE = /(\\p{Emoji_Presentation}|\\p{Extended_Pictographic})/gu; 
+WAIT 1
+WebAutomation.ExecuteJavascript BrowserInstance: Browser Javascript: $'''function ExecuteScript() { return document.querySelector(\"#original-title > div > textarea\").value }''' Result=> Title
+WebAutomation.CreateNewTab.CreateNewTab BrowserInstance: Browser Url: $'''https://translate.google.ca/?sl=en&tl=%code%&op=translate&text=%Title%''' WaitForPageToLoadTimeout: 60 NewBrowserInstance=> NewBrowser
+WAIT 2
+WebAutomation.ExecuteJavascript BrowserInstance: NewBrowser Javascript: $'''function ExecuteScript() { return document.querySelector(\'span[lang=\"%code%\"]\').innerText }''' Result=> TrTitle
+Clipboard.SetText Text: TrTitle
+MouseAndKeyboard.SendKeys.FocusAndSendKeys TextToSend: $'''{Control}({F4})''' DelayBetweenKeystrokes: 10 SendTextAsHardwareKeys: False
+WebAutomation.PopulateTextField.PopulateTextFieldUsePhysicalKeyboard BrowserInstance: Browser Control: appmask['Web Page \'h ... anslations\'']['Text area \'style-scope ytcp-form-textarea\' 3'] Text: TrTitle Mode: WebAutomation.PopulateTextMode.Replace UnfocusAfterPopulate: False WaitForPageToLoadTimeout: 60
+Text.Replace Text: Descr TextToFind: $'''#''' IsRegEx: True IgnoreCase: False ReplaceWith: $'''%%23''' ActivateEscapeSequences: True Result=> Replaced
+WebAutomation.ExecuteJavascript BrowserInstance: Browser Javascript: $'''function ExecuteScript() { var emojiRE = /(\\p{Emoji_Presentation}|\\p{Extended_Pictographic})/gu; 
 return document.querySelector(\"#original-description > div > textarea\").value.replace(emojiRE, \' $1 \');
 }''' Result=> Descr
-    Text.Replace Text: Descr TextToFind: $'''#''' IsRegEx: True IgnoreCase: False ReplaceWith: $'''%%23''' ActivateEscapeSequences: True Result=> Replaced
-    Text.Replace Text: Replaced TextToFind: $'''&''' IsRegEx: True IgnoreCase: False ReplaceWith: $'''%%26''' ActivateEscapeSequences: False Result=> Replaced
-    Text.Replace Text: Replaced TextToFind: $'''\\n''' IsRegEx: True IgnoreCase: False ReplaceWith: $'''%%0A''' ActivateEscapeSequences: False Result=> Replaced2
-    WebAutomation.CreateNewTab.CreateNewTab BrowserInstance: Browser Url: $'''https://translate.google.ca/?sl=en&tl=%code%&op=translate&text=%Replaced2%''' WaitForPageToLoadTimeout: 60 NewBrowserInstance=> NewBrowser
-    WAIT 2
-    WebAutomation.ExecuteJavascript BrowserInstance: NewBrowser Javascript: $'''function ExecuteScript() { return document.querySelector(\'span[lang=\"%code%\"]\').innerText }''' Result=> TrDesc
-    Clipboard.SetText Text: TrDesc
-    MouseAndKeyboard.SendKeys.FocusAndSendKeys TextToSend: $'''{Control}({F4})''' DelayBetweenKeystrokes: 10 SendTextAsHardwareKeys: False
-    WebAutomation.PopulateTextField.PopulateTextField BrowserInstance: Browser Control: appmask['Web Page \'h ... anslations\'']['Text area \'style-scope ytcp-form-textarea\' 4'] Text: TrDesc Mode: WebAutomation.PopulateTextMode.Replace EmulateTyping: True UnfocusAfterPopulate: False WaitForPageToLoadTimeout: 60
-    WebAutomation.ExecuteJavascript BrowserInstance: Browser Javascript: $'''function ExecuteScript() { document.querySelector(\"#publish-button\").click(); }''' Result=> Result
-END FUNCTION
+Text.Replace Text: Descr TextToFind: $'''#''' IsRegEx: True IgnoreCase: False ReplaceWith: $'''%%23''' ActivateEscapeSequences: True Result=> Replaced
+Text.Replace Text: Replaced TextToFind: $'''&''' IsRegEx: True IgnoreCase: False ReplaceWith: $'''%%26''' ActivateEscapeSequences: False Result=> Replaced
+Text.Replace Text: Replaced TextToFind: $'''\\n''' IsRegEx: True IgnoreCase: False ReplaceWith: $'''%%0A''' ActivateEscapeSequences: False Result=> Replaced2
+WebAutomation.CreateNewTab.CreateNewTab BrowserInstance: Browser Url: $'''https://translate.google.ca/?sl=en&tl=%code%&op=translate&text=%Replaced2%''' WaitForPageToLoadTimeout: 60 NewBrowserInstance=> NewBrowser
+WAIT 2
+WebAutomation.ExecuteJavascript BrowserInstance: NewBrowser Javascript: $'''function ExecuteScript() { return document.querySelector(\'span[lang=\"%code%\"]\').innerText }''' Result=> TrDesc
+Clipboard.SetText Text: TrDesc
+MouseAndKeyboard.SendKeys.FocusAndSendKeys TextToSend: $'''{Control}({F4})''' DelayBetweenKeystrokes: 10 SendTextAsHardwareKeys: False
+WebAutomation.PopulateTextField.PopulateTextField BrowserInstance: Browser Control: appmask['Web Page \'h ... anslations\'']['Text area \'style-scope ytcp-form-textarea\' 4'] Text: TrDesc Mode: WebAutomation.PopulateTextMode.Replace EmulateTyping: True UnfocusAfterPopulate: False WaitForPageToLoadTimeout: 60
+WebAutomation.ExecuteJavascript BrowserInstance: Browser Javascript: $'''function ExecuteScript() { document.querySelector(\"#publish-button\").click(); }''' Result=> Result
 
 # [ControlRepository][PowerAutomateDesktop]
 
