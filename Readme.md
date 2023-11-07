@@ -3,9 +3,12 @@
 ![powershell screenshot](./images/screenshot.png)
 
 ## changelog Nov-7-2023
-adapted the flow to the new YouTube layout
-Fixed a type (Ukranian-> Ukrainian)
+- Adapted the flow to the new YouTube layout
+- Fixed a typo (Ukranian-> Ukrainian)
 
+## changelog June-27-2023
+- Added ability to overwrite (or not) already translated languages.
+- 
 ## Prerequisites
 
 - Windows with Microsoft account
