@@ -1,3 +1,6 @@
+# Notice
+THIS REPPPO IS NO LONGER MAINTAINED, AS I SWITCHED FROM WINDOWS TO LINUX.
+
 # Automatic Youtube Video Title and Description Translator
 
 ![powershell screenshot](./images/screenshot.png)
@@ -16,12 +19,6 @@
 - Google Chrome or Microsoft Edge 
   - where your channel account is logged in
   - and where youtube is in english (else you will need to reconfigure some parts of the flow)
-
-## How to use
-
-Check youtube videos :
-- Installation and usage: https://youtu.be/SQM-lb4lTEo
-- Explanation:  https://youtu.be/zl_l0yx58Ck
 
 ## Flow
 
